@@ -1,0 +1,6 @@
+training episodes: 500
+
+num layers: 1
+hidden sizes: 256
+learning rate: 0.01
+discount factor: 0.99

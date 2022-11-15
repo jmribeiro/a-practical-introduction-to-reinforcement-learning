@@ -1,0 +1,8 @@
+numpy
+gym==0.21.0
+pyglet>=1.5.27
+matplotlib
+box2d-py
+torch
+pyyaml
+tqdm
