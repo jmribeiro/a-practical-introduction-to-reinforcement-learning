@@ -40,4 +40,4 @@
 4) Test installation
 
 
-      $ python demo.py
+      $ python run_demo.py
