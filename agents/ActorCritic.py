@@ -1,3 +1,4 @@
+import pathlib
 import numpy as np
 
 import torch
@@ -130,3 +131,14 @@ class PolicyValueNetwork(nn.Module):
         loss = (torch.stack(actor_losses).sum() + 0.5 * torch.stack(critic_losses).sum()) / batch_size
 
         return loss
+
+    def save(self, directory):
+        pathlib.Path(directory).mkdir(parents=True, exist_ok=True)
+        torch.save(self.state_dict(), f"{directory}/model.pt")
+        torch.save(self.optimizer.state_dict(), f"{directory}/optimizer.pt")
+
+    def load(self, directory):
+        model_state_dict = torch.load(f"{directory}/model.pt")
+        optimizer_state_dict = torch.load(f"{directory}/optimizer.pt")
+        self.load_state_dict(model_state_dict)
+        self.optimizer.load_state_dict(optimizer_state_dict)
