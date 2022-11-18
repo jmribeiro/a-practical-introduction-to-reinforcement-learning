@@ -76,11 +76,12 @@ if __name__ == '__main__':
 
     parser.add_argument("--environment", type=str, default="CartPole-v0")
     parser.add_argument('--agents', nargs='+', default=[
+        "REINFORCE",
         "ActorCritic",
         "Random",
     ])
 
-    parser.add_argument("--num-train-trials", default=3, type=int)
+    parser.add_argument("--num-train-trials", default=1, type=int)
     parser.add_argument("--num-eval-episodes", default=8, type=int)
     parser.add_argument("--render-last-three", action="store_true")
     parser.add_argument("--max-timesteps", default=math.inf, type=int)

@@ -60,7 +60,18 @@ def agent_factory(agent_name: str, environment: Env, hyperparameters: Optional[d
 
         return ActorCritic(num_features, num_actions, num_layers, hidden_sizes, learning_rate, discount_factor)
 
-    # elif agent_name == "...":
+    elif agent_name == "REINFORCE":
+
+        num_features = environment.observation_space.shape[0]
+        num_actions = environment.action_space.n
+
+        hidden_sizes = hyperparameters["hidden sizes"]
+        num_layers = hyperparameters["num layers"]
+
+        learning_rate = float(hyperparameters["learning rate"])
+        discount_factor = hyperparameters["discount factor"]
+
+        return REINFORCE(num_features, num_actions, num_layers, hidden_sizes, learning_rate, discount_factor)
 
     else:
         raise ValueError(f"{agent_name} unknown on agent_factory.")
