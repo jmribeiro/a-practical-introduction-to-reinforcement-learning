@@ -15,9 +15,9 @@ class Agent(ABC):
         self.name = name
 
     @abstractmethod
-    def action(self, observation: np.ndarray) -> int:
+    def action(self, observation: np.ndarray):
         pass
 
     @abstractmethod
-    def step(self, timestep: Timestep) -> dict:
+    def step(self, timestep: Timestep):
         pass
